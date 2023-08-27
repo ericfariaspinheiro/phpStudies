@@ -1,14 +1,15 @@
 <?php
-//    Crie um arquivo 03.php a partir do 02.php e modifique-o para
-//    adicionar uma opção "3) CADASTAR", que solicite um novo produto
-//    e o cadastre no array de produtos. Cuide para que o estoque e
-//    o preço sejam cadastrados como int e float, respectivamente.
+//    Crie um arquivo 04.php a partir do 03.php e modifique-o para
+//    adicionar uma opção "4) REMOVER", que utilize a pesquisa
+//    por nome ou por código para encontrar um produto e então
+//    removê-lo.
 
 require_once 'produtos.php';
 
 const OPCAO_PESQUISAR = '1';
 const OPCAO_LISTAR = '2';
 const OPCAO_CADASTRAR = '3';
+const OPCAO_REMOVER = '4';
 
 function pesquisarProduto($lista)
 {
@@ -62,6 +63,23 @@ function cadastrarProduto(&$lista)
     $lista[] = $produto;
 }
 
+function removeProduto(&$lista)
+{
+    $encontrado = false;
+    $valorRemover = readline("Digite a descricao ou o codigo do produto: ");
+    foreach ($lista as $indice => $produto) {
+        if ($produto['codigo'] == $valorRemover || $produto['descricao'] == $valorRemover) {
+            $encontrado = true;
+            unset($lista[$indice]);
+            echo 'Removido da posição ', $indice, PHP_EOL;
+        }
+    }
+
+    if (!$encontrado) {
+        echo "Produto nao encontrado\n";
+    }
+}
+
 function menu($produtos)
 {
     do {
@@ -69,6 +87,7 @@ function menu($produtos)
         echo "1) PESQUISAR", PHP_EOL;
         echo "2) LISTAR", PHP_EOL;
         echo "3) CADASTRAR", PHP_EOL;
+        echo "4) REMOVER", PHP_EOL;
 
         $opcao = readline("Digita uma opcao: ");
 
@@ -81,6 +100,9 @@ function menu($produtos)
                 break;
             case OPCAO_CADASTRAR:
                 cadastrarProduto($produtos);
+                break;
+            case OPCAO_REMOVER:
+                removeProduto($produtos);
                 break;
             default:
                 echo "Opcao invalida.";

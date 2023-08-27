@@ -59,7 +59,6 @@ do {
 
     switch ($opcao) {
         case OPCAO_PESQUISAR:
-
             pesquisarProduto($produtos);
             break;
         case OPCAO_LISTAR:
