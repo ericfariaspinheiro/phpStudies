@@ -33,12 +33,27 @@ function pesquisarProduto($lista)
 
 function listarProdutos($lista)
 {
+    $totalEstoque = 0;
+    $totalPreco = 0.00;
+
+    foreach ($lista as $produto) {
+        foreach ($produto as $chave => $valor) {
+            if ($chave == 'estoque') {
+                $totalEstoque += $valor;
+            } elseif ($chave == 'preco') {
+                $totalPreco += $valor;
+            }
+            echo "$chave: $valor\n";
+        }
+        echo str_repeat("-", 25), "\n";
+    }
+    echo "Total em estoque: $totalEstoque\nValor total: $totalPreco";
 }
 
 do {
     echo "0) SAIR", PHP_EOL;
     echo "1) PESQUISAR", PHP_EOL;
-    echo "0) LISTAR", PHP_EOL;
+    echo "2) LISTAR", PHP_EOL;
 
     $opcao = readline("Digita uma opcao: ");
 
@@ -48,6 +63,7 @@ do {
             pesquisarProduto($produtos);
             break;
         case OPCAO_LISTAR:
+            listarProdutos($produtos);
             break;
         default:
             echo "Opcao invalida.";
