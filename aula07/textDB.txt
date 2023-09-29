@@ -1,0 +1,13 @@
+CREATE TABLE tarefa (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    descricao varchar(100) NOT NULL UNIQUE,
+    feita boolean not null default 0
+) ENGINE = INNODB;
+
+INSERT INTO tarefa 
+	(descricao, feita) 
+VALUES 
+('Comprar pão', 1),
+('Pagar internet', 0),
+('Pagar luz', 1),
+('Comprar cerveja', 0);

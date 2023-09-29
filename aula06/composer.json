@@ -1,0 +1,6 @@
+{
+    "name": "aluno/aula06",
+    "require": {
+        "phputil/extenso": "^2.0"
+    }
+}

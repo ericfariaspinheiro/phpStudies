@@ -1,0 +1,16 @@
+CREATE TABLE produto (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    descricao varchar(100) NOT NULL UNIQUE, 
+    estoque INT DEFAULT 0, 
+    preco_compra DECIMAL(10,2) NOT NULL,
+    tipo CHAR(2) DEFAULT 'P', -- 'P' = Produto, 'PT' = Produto Tributado
+    imposto DECIMAL(4,2) DEFAULT 0
+) ENGINE = INNODB;
+
+INSERT INTO produto 
+	(descricao, estoque, preco_compra,  tipo, imposto) 
+VALUES 
+('Água mineral', 100, 2.50, 'P', 0),
+('Notebook Acme', 3, 2000.00, 'PT', 40),
+('Coca-cola', 20, 6.00, 'PT', 30),
+('Chinelo Xpto', 10, 30.00, 'T', 0);
