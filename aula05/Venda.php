@@ -6,7 +6,7 @@
         private $itens = [];
 
         public function adicionarItens(ItemVenda $item){
-            array_push($this->intens, $item);
+            array_push($this->itens, $item);
         }
 
         public function removerItemNaPosicao($pos){
