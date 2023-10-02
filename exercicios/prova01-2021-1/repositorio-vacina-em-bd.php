@@ -86,7 +86,7 @@
             }
         }
     }
-    $vacina = new Vacina(1, 'CoviTester', 'Eric S/A', 3, 0.99, 0.85, 0.01);
-    $vacinaDb = new RepositorioVacinaEmBD();
-    $vacinaDb->atualizarVacina($vacina);
+    // $vacina = new Vacina(1, 'CoviTester', 'Eric S/A', 3, 0.99, 0.85, 0.01);
+    // $vacinaDb = new RepositorioVacinaEmBD();
+    // $vacinaDb->atualizarVacina($vacina);
 ?>
