@@ -1,4 +1,5 @@
 <?php
+    // A
     $conteudo = file_get_contents('produtos.csv');
     $linhas = explode("\n", $conteudo);
     $cabecalho = array_shift($linhas);
@@ -49,6 +50,17 @@
         $html .= "<td>{$produto['preco']}</td>";
         $html .= "</tr>";
     }
+
+
+    // B
+
+    $totalEstoque = 0;
+
+    foreach($produtos as $produto){
+        $totalEstoque += $produto['estoque'];
+    }
+
+    $html .= "<tfoot><tr><td colspan='2'>Total de estoque</td><td>{$totalEstoque}</td></tr><tfoot>";
 
     $html .= <<<HTML
         </table>
