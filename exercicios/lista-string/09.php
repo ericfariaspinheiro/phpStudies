@@ -14,5 +14,6 @@
         return strcasecmp($semPontuacao, $invertido) == 0 ? "Eh palindromo" : "Nao eh palindromo";
     }
 
-    echo palindromo("Sá da tapas e sapatadas");
+    echo palindromo("Sá da tapas e sapatadas"), PHP_EOL;
+    echo palindromo("Hoje é sabado");
 ?>
